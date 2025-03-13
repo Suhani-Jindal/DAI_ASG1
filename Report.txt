@@ -1,0 +1,59 @@
+DATASET: AUTOMOBILE 
+
+
+1. Dataset Overview
+
+•Total Records: 398Features: 8Numerical •Features: mpg, horsepower, weight, acceleration, displacement, •cylindersCategorical Features: origin, model_year
+
+
+2. Structure and Summary Statistics
+
+•MPG (Miles Per Gallon): Ranges from 9 to 46 (mean ≈ 23.5).
+•Horsepower: Mean ≈ 104; varies widely, indicating different vehicle performance levels.
+•Weight: Ranges from 1613 to 5140 pounds; heavier cars tend to have lower MPG.
+•Acceleration: Most cars accelerate between 8 to 24 seconds (0-60 mph).
+
+
+3. Data Cleaning
+
+•Handling Missing Values:
+ -Missing values found in horsepower column.
+ -Imputed missing values using mean.
+•Duplicates: 
+ -Removed duplicates using df.drop_duplicates(inplace= True).
+•Outliers: 
+ -Used Interquartile Range (IQR) method to remove outliers in numerical columns.
+
+
+4. Exploratory Data Analysis (EDA):
+
+•Univariate Analysis:
+ -Histograms:Slight right skew, with most vehicles having MPG between 15-30.
+ -Boxplot of Horsepower and car weights:Significant outliers in horsepower and weight before cleaning.
+
+•Bivariate Analysis:
+ -Scatter Plot Insights:Strong inverse relationship: as weight increases, fuel efficiency decreases.
+ -Categorical Feature Analysis(Parallel Boxplots for MPG across origins) : Japanese and European cars tend to have higher MPG compared to US-made cars.
+
+•Multivariate Analysis:
+ -Correlation Heatmap:
+	*MPG and Weight (-0.83 correlation): heavier cars have lower fuel efficiency.
+	*MPG and Horsepower (-0.78 correlation): higher horsepower leads to lower MPG.
+ -Pairplot:Clear inverse relationships between MPG, horsepower, and weight.
+  -KMeans Clustering:
+	*Cluster 1: High horsepower, heavy, low MPG → likely sports/luxury cars.
+	*Cluster 2: Medium horsepower, medium weight, average MPG → balanced cars.
+	*Cluster 3: Low horsepower, light, high MPG → fuel-efficient cars.
+
+
+5. Conclusion from analysis:
+
+•MPG is highly influenced by weight and horsepower.
+•Heavier, high-horsepower cars have significantly lower MPG.
+•KMeans clustering successfully categorized cars based on performance.
+•Japanese & European cars are generally more fuel-efficient.
+
+
+
+
+
